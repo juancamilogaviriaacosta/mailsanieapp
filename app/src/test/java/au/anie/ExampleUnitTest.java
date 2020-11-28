@@ -1,4 +1,4 @@
-package com.example.mailsanieapp;
+package au.anie;
 
 import org.junit.Test;
 
