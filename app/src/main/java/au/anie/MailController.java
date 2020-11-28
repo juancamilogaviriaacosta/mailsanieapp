@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -58,10 +59,12 @@ public class MailController {
     public void send() {
         try {
             String appPath = this.firstFragment.getActivity().getApplicationContext().getFilesDir().getAbsolutePath();
-            System.out.println(this.firstFragment.getActivity().getAssets());
+            System.out.println(appPath);
+            System.out.println(Arrays.deepToString(this.firstFragment.getActivity().getAssets().list("")));
+            System.out.println(this.firstFragment.getActivity().getAssets().open("mail.jrxml"));
 
-            String logo = new File(this.getClass().getResource("MailController.class").getPath()).getParent() + File.separator + "logo.jpg";
-            String signature = new File(this.getClass().getResource("MailController.class").getPath()).getParent() + File.separator + "signature.jpg";
+            String logo = new File("//android_asset/logo.jpg").getAbsolutePath();
+            String signature = new File("//android_asset/signature.jpg").getAbsolutePath();
 
             final String fromEmail = "";
             final String password = "";
