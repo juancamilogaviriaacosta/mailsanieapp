@@ -24,8 +24,14 @@ public class FirstFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        MailController mc = new MailController(FirstFragment.this);
-        mc.send();
-        Snackbar.make(view, "Sent", Snackbar.LENGTH_LONG) .setAction("Action", null).show();
+        view.findViewById(R.id.button_send).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MailController mc = new MailController(FirstFragment.this);
+                mc.send();
+                Snackbar.make(view, "Sent", Snackbar.LENGTH_LONG) .setAction("Action", null).show();
+                //NavHostFragment.findNavController(FirstFragment.this).navigate(R.id.action_FirstFragment_to_SecondFragment);
+            }
+        });
     }
 }
