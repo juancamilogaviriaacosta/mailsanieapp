@@ -22,6 +22,12 @@ android {
     }
 }
 
+configurations {
+    all*.exclude group: 'commons-collections', module: 'commons-collections'
+    all*.exclude group: 'org.bouncycastle', module: 'bcprov-jdk14'
+    all*.exclude group: 'bouncycastle', module: 'bcmail-jdk14'
+}
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
